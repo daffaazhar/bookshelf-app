@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h2 {
+    @apply text-xl font-bold;
+  }
+}
+
+@layer components {
+  .card {
+    @apply m-6 rounded p-6 shadow-[0_2px_12px_rgba(0,0,0,0.125)];
+  }
+}
+
+/* custom CSS */
+.item {
+  @apply mt-4 flex flex-col rounded border-[1px] border-tertiary-light p-3 md:flex-row md:items-center md:justify-between;
+}
+.button-wrapper {
+  @apply mt-2 flex flex-row gap-x-1 md:mt-0 md:flex-col md:gap-y-1;
+}
+.action {
+  @apply flex items-center gap-x-1 rounded bg-primary-dark p-2;
+}
+.span-button {
+  @apply text-xs leading-none text-white;
+}
+.semibold {
+  @apply font-semibold;
+}
+#readRackStatus,
+#unreadRackStatus {
+  @apply mt-1 text-sm;
+}
+.toast {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  border-radius: 4px;
+  background: #fff;
+  padding: 24px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid #59b427;
+  overflow: hidden;
+  transform: translateX(calc(100% + 18px));
+  transition: all 0.4s ease;
+}
+.toast.active {
+  transform: translateX(0%);
+}
+.toast-content {
+  display: flex;
+  align-items: center;
+}
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background: #59b427;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 50%;
+}
+.message {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+.message .text-1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.message .text-2 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+}
+.toast .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.toast .close:hover {
+  opacity: 1;
+}
+.toast .progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #ddd;
+}
+.toast .progress:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #59b427;
+}
+.progress.active::before {
+  animation: progress 5s linear forwards;
+}
+.field {
+  position: relative;
+  height: 3rem;
+  margin-bottom: 0.8rem;
+}
+.field-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  border: 1.5px solid #0f172a;
+  border-radius: 0.25rem;
+  padding: 1.25rem;
+  background: none;
+}
+.field-label {
+  position: absolute;
+  left: 1rem;
+  top: 0.8rem;
+  padding: 0 0.25rem;
+  color: #0f172a;
+  cursor: text;
+  transition: top 0.2s ease-out, left 0.2s ease-out, 0.2s ease-out;
+  background-color: #fff;
+}
+.field-input:focus ~ .field-label,
+.field-input:not(:placeholder-shown).field-input:not(:focus) ~ .field-label {
+  top: -0.5rem;
+  font-size: 0.75rem;
+  left: 0.8rem;
+}
+@keyframes progress {
+  100% {
+    right: 100%;
+  }
+}

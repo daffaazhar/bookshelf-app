@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Bookshelf App</title>
+  </head>
+  <body class="relative overflow-x-hidden bg-primary-light font-inter">
+    <div class="toast">
+      <div class="toast-content">
+        <i class="bx bx-check check"></i>
+        <div class="message">
+          <span class="text text-1">Success</span>
+          <span class="text text-2">Your book has been saved</span>
+        </div>
+        <i class="bx bx-x close"></i>
+
+        <div class="progress"></div>
+      </div>
+    </div>
+
+    <header class="border-b-[1.5px] border-solid border-secondary-light">
+      <nav class="m-auto flex w-full flex-col items-center justify-center py-[1.1rem] px-6 sm:flex-row sm:justify-between lg:w-[58rem]">
+        <div class="mb-3 flex items-center justify-center sm:mb-0">
+          <i class="bx bx-minus-back text-3xl leading-none text-primary-dark"></i>
+          <a href="#" class="letter ml-2 text-[22px] font-bold text-primary-dark no-underline">Bookshelf App</a>
+        </div>
+        <form method="get" class="flex">
+          <input type="text" name="search" id="searchBox" class="m-0 rounded-tl rounded-bl border-2 border-solid border-primary-dark py-1 px-2 text-sm text-primary-dark" placeholder="Search book..." autocomplete="off" />
+          <button type="submit" id="searchButton" class="inline-flex items-center justify-center rounded-tr rounded-br border-2 border-l-0 border-solid border-primary-dark bg-primary-dark py-1 px-2 text-primary-dark">
+            <i class="bx bx-search text-base text-white"></i>
+          </button>
+        </form>
+      </nav>
+    </header>
+
+    <main class="m-auto flex w-full flex-col sm:flex-row lg:w-[58rem]">
+      <div class="basis-2/5">
+        <section class="card mb-0">
+          <h2 class="mb-4">Add Book</h2>
+          <form id="addBookForm">
+            <div class="field">
+              <input type="text" name="title" id="title" class="field-input" placeholder=" " autocomplete="off" required />
+              <label class="field-label" for="title">Title</label>
+            </div>
+            <div class="field">
+              <input type="text" name="author" id="author" class="field-input" placeholder=" " autocomplete="off" required />
+              <label class="field-label" for="author">Author</label>
+            </div>
+            <div class="field">
+              <input type="number" name="publicationYear" id="publicationYear" class="field-input" placeholder=" " autocomplete="off" required />
+              <label class="field-label" for="publicationYear">Publication Year</label>
+            </div>
+            <div class="mb-4 flex items-center gap-x-2">
+              <input type="checkbox" name="isCompleted" id="isCompleted" />
+              <label class="text-sm" for="isCompleted">Selesai Dibaca</label>
+            </div>
+            <input type="submit" value="Submit Book" name="Submit" class="w-full rounded border-[1px] bg-primary-dark p-2 text-white" />
+          </form>
+        </section>
+      </div>
+      <div class="basis-3/5">
+        <section class="card">
+          <h2>Unread Book</h2>
+          <p id="unreadRackStatus">There are no books to display here. Try to add it first.</p>
+          <div id="unreadBookList" class="list-items"></div>
+        </section>
+        <section class="card">
+          <h2>Read Book</h2>
+          <p id="readRackStatus">There are no books to display here. Try to add it first.</p>
+          <div id="readBookList" class="list-items"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="mt-16 border-t-[1.5px] border-solid border-secondary-light py-4">
+      <p class="text-center text-sm">© 2022 | Created with <i class="bx bxs-heart text-[#b81b47]"></i> by <a href="https://daffaazhar.me" target="_blank" class="font-semibold">Daffa Azhar</a></p>
+    </footer>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
